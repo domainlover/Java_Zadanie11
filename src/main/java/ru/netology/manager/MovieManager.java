@@ -23,20 +23,23 @@ public class MovieManager {
   }
 
   public MovieItem[] showLastMovies() {
-    int count = movies.length > numberOfMovies ? numberOfMovies : movies.length;
-    MovieItem[] tmp = new MovieItem[count];
-    for (int i = 0; i < count; i++) {
+    MovieItem[] result = new MovieItem[movies.length];
+    MovieItem[] numberOfMovies = new MovieItem[this.numberOfMovies];
+    for (int i = 0; i < result.length; i++) {
       int index = movies.length - i - 1;
-      tmp[i] = movies[index];
+      result[i] = movies[index];
     }
-    return tmp;
+    for (int i = 0; i < this.numberOfMovies; i++) {
+      numberOfMovies[i] = result[i];
+    }
+    return numberOfMovies;
   }
 
   public MovieManager() {
   }
 
   public MovieManager(int numberOfMovies) {
-    if (numberOfMovies < 0) {
+    if (numberOfMovies > 10) {
       return;
     }
     this.numberOfMovies = numberOfMovies;

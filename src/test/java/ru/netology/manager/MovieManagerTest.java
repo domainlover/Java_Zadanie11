@@ -9,7 +9,7 @@ public class MovieManagerTest {
 
   @Test
   public void showLessThanTenMovies() {
-    MovieManager movieManager = new MovieManager();
+    MovieManager movieManager = new MovieManager(5);
     MovieItem one = new MovieItem(1, 1, "one", "action");
     MovieItem two = new MovieItem(2, 2, "two", "cartoon");
     MovieItem three = new MovieItem(3, 3, "three", "comedy");
